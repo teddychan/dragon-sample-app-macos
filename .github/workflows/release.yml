@@ -89,5 +89,5 @@ jobs:
       # every installed copy would read it as OLDER and never offer the update. 100 + count clears
       # 77 with room to spare. Never lower this.
       build_number_offset: '100'
-      appcast_repo: teddychan/dragon-sample-app
+      appcast_repo: teddychan/dragon-sample-app-macos
       zip_name_template: 'DragonSampleApp-{TAG}.zip'
