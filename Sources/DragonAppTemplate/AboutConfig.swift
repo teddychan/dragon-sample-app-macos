@@ -31,7 +31,7 @@ enum AboutConfig {
             // `teddychan/dragon-kit/issues` until 1.4.4 — left over from when the app lived
             // inside the kit — so the support row sent users to the library's tracker for a bug
             // in the app. The support row names the repo the binary is released from, always.
-            supportURL: URL(string: "https://github.com/teddychan/dragon-sample-app/issues")!,
+            supportURL: URL(string: "https://github.com/teddychan/dragon-sample-app-macos/issues")!,
             // Required since DragonKit 4.0.0, and the fix for this app's own defect: it listed
             // `Sparkle → MIT` in Credits (below) while `licensesURL` was nil, naming a bundled
             // component whose notices were reachable nowhere. That is half of MIT compliance
