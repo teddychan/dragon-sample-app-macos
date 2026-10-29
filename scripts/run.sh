@@ -92,10 +92,12 @@ if [ -n "$COMMIT_DATE" ]; then
     || "$PB" -c "Add :DragonCommitDate string $COMMIT_DATE" "$APP/Contents/Info.plist"
 fi
 
-# Copy every SwiftPM resource bundle next to the binary: DragonKit_DragonKit.bundle (the
+# Copy every SwiftPM resource bundle into Contents/Resources: DragonKit_DragonKit.bundle (the
 # kit's strings) AND DragonAppTemplate_DragonAppTemplate.bundle (the app's own strings,
-# resolved at runtime via LocalizationManager.appStringsBundle = .module).
-cp -R "$BIN_DIR"/*.bundle "$APP/Contents/MacOS/" 2>/dev/null || true
+# resolved at runtime via AppResources.stringsBundle). Both lookups, and SwiftPM's own
+# Bundle.module, check Bundle.main.resourceURL first; next to the binary they found nothing and
+# the app trapped at launch.
+cp -R "$BIN_DIR"/*.bundle "$APP/Contents/Resources/" 2>/dev/null || true
 
 # Embed Sparkle.framework (linked by DragonKitUpdates) so the relocated .app finds it at
 # runtime — SwiftPM otherwise leaves it in the artifacts dir, which the moved app can't reach.
@@ -117,16 +119,28 @@ else
   echo "      '$SIGN_IDENTITY' in Keychain Access (Certificate Assistant → Create a Certificate)."
 fi
 
+# Install into /Applications, where every Dragon app lives, replacing the previous Debug copy
+# outright. The rm -rf below runs in /Applications, so refuse unless the identity is the Debug one.
+INSTALLED="/Applications/$APP_NAME.app"
+[[ "$APP_NAME" == *" Debug" && "$DEBUG_ID" == *.debug ]] \
+  || { echo "error: refusing to install a non-Debug identity into /Applications" >&2; exit 1; }
+
 # Quit any previously-launched DEBUG instance so a stale menu-bar icon doesn't linger.
 #
-# Anchored on the full debug bundle path, not on "/Contents/MacOS/$BIN_NAME". The executable is
-# named DragonAppTemplate in BOTH bundles — only CFBundleName/CFBundleDisplayName differ — so the
-# bare pattern matched an installed release copy too and this script terminated the user's public
-# app. spectacle-2 shipped and fixed the same defect; the lifecycle spec now requires quit and
-# cleanup scripts to match only the Debug bundle path.
-pkill -f "$APP/Contents/MacOS/$BIN_NAME" 2>/dev/null || true
+# Found by the .debug bundle id, never by executable name. The executable is named
+# DragonAppTemplate in BOTH bundles — only CFBundleName/CFBundleDisplayName differ — so a bare
+# "/Contents/MacOS/$BIN_NAME" pattern matched an installed release copy too and this script
+# terminated the user's public app. The id also catches a Debug copy launched from an older
+# build folder.
+for ASN in $(lsappinfo find bundleid="$DEBUG_ID" | grep -oE 'ASN:0x[0-9a-f]+-0x[0-9a-f]+-' || true); do
+  PID="$(lsappinfo info -only pid "$ASN" | grep -oE 'pid"? ?= ?[0-9]+' | grep -oE '[0-9]+$' || true)"
+  [ -n "$PID" ] && kill "$PID" 2>/dev/null || true
+done
 sleep 1
+
+rm -rf "$INSTALLED"
+ditto "$APP" "$INSTALLED"
 # -n launches the bundle at THIS exact path. A plain `open` resolves through LaunchServices,
 # which is free to activate some other registered copy of the same bundle id.
-open -n "$APP"
-echo "Launched $APP"
+open -n "$INSTALLED"
+echo "Launched $INSTALLED"
