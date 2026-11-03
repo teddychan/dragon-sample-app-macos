@@ -81,6 +81,7 @@ jobs:
         Sources/DragonAppTemplate/Resources/fr.lproj/Localizable.strings
         Sources/DragonAppTemplate/Resources/ja.lproj/Localizable.strings
         Sources/DragonAppTemplate/Resources/ko.lproj/Localizable.strings
+        Sources/DragonAppTemplate/Resources/ru.lproj/Localizable.strings
         Sources/DragonAppTemplate/Resources/zh-Hans.lproj/Localizable.strings
         Sources/DragonAppTemplate/Resources/zh-Hant.lproj/Localizable.strings
       # CFBundleVersion must clear the 77 already shipped from dragon-kit. Sparkle compares this
