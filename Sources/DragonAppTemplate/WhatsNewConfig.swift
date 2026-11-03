@@ -18,25 +18,22 @@ enum WhatsNewConfig {
     /// the first violation that gate caught, on its first live run.
     ///
     /// Every entry is a localization key resolved through ``L(_:)``; the app ships its own
-    /// `Localizable.strings` in seven languages, so the pane switches with the language picker.
+    /// `Localizable.strings` in eight languages, so the pane switches with the language picker.
     @MainActor
     static var content: WhatsNewContent {
         WhatsNewContent(
-            date: "2026-08-20",
+            date: "2026-11-03",
             summary: L("app.whatsNew.summary"),
             sections: [
-                // 1.4.9 carries one user-facing change, inherited from DragonKit 4.1.1: Uninstall
-                // now refuses to run when it finds more than one copy of the app on the Mac.
-                // Settings, the login item and support files are keyed to the app's identity rather
-                // than its location, so two copies would otherwise share all of them with no way to
-                // tell whose is whose.
+                ChangeSection(kind: .added, entries: [
+                    L("app.whatsNew.added1"),
+                ]),
                 ChangeSection(kind: .fixed, entries: [
                     L("app.whatsNew.fixed1"),
                 ]),
-                // Deliberately NOT mentioned above: DragonKit 4.1.1's other fix, a raw developer
-                // error in Settings > Updates. It only ever appeared in local debug builds, so no
-                // released build of Dragon Sample App could reach it — that stays out of this pane,
-                // the same rule that kept it out of every other app's notes for this release.
+                // Left out on purpose: DragonKit 4.1.2's Uninstall check for an app the user cannot
+                // move to the Trash. It matters for root-owned installs (Mac App Store, .pkg), and
+                // this app ships only as a zip and a Homebrew cask, which the user owns.
                 ChangeSection(kind: .changed, entries: [
                     L("app.whatsNew.changed1"),
                 ]),
