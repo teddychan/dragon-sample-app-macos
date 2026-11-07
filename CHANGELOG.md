@@ -6,6 +6,17 @@ message and the notes of its GitHub Release.
 Versions before 1.4.2 were released from the DragonKit repository. Tags v1.4.1 and v1.4.7 exist
 but never became a release.
 
+## [1.6.0] - 2026-11-07
+
+Dragon Sample App looks and works the same as 1.5.0. This version moves it to DragonKit 4.4.0.
+
+### Internal
+
+- Updated to DragonKit 4.4.0, the shared framework behind the menu, Settings, About, What's New
+  and software updates. DragonKit now removes the app's settings during Uninstall on its own, so
+  the app no longer lists them. Uninstall removes the same settings as before. The About screen
+  shows the new DragonKit version.
+
 ## [1.5.0] - 2026-11-03
 
 Dragon Sample App now comes in Russian, and on macOS 27 its menu shows its icons again.

@@ -22,18 +22,12 @@ enum WhatsNewConfig {
     @MainActor
     static var content: WhatsNewContent {
         WhatsNewContent(
-            date: "2026-11-03",
+            date: "2026-11-07",
             summary: L("app.whatsNew.summary"),
             sections: [
-                ChangeSection(kind: .added, entries: [
-                    L("app.whatsNew.added1"),
-                ]),
-                ChangeSection(kind: .fixed, entries: [
-                    L("app.whatsNew.fixed1"),
-                ]),
-                // Left out on purpose: DragonKit 4.1.2's Uninstall check for an app the user cannot
-                // move to the Trash. It matters for root-owned installs (Mac App Store, .pkg), and
-                // this app ships only as a zip and a Homebrew cask, which the user owns.
+                // 1.6.0 only moves to DragonKit 4.4.0. Its Uninstall change clears the same
+                // settings suite this app already listed, and its optional Backup "A backup saves"
+                // list is not adopted here.
                 ChangeSection(kind: .changed, entries: [
                     L("app.whatsNew.changed1"),
                 ]),
