@@ -83,7 +83,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return UninstallConfig(
             appName: appName,
             bundleID: bundleID,
-            suiteNames: [SettingsModel.suiteName],
+            // No `suiteNames:`. DragonKit clears the standard settings suite
+            // (`SettingsModel.suiteName`) on its own, so there is no list to forget to update.
             checklistItems: [
                 L("app.uninstall.item.app"),
                 L("app.uninstall.item.settings"),

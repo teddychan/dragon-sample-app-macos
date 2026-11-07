@@ -21,9 +21,12 @@ extension Notification.Name {
 @MainActor
 @Observable
 final class SettingsModel {
-    /// A dedicated suite (distinct from the app's bundle-id domain) so a backup captures only
-    /// app settings — not the backup pane's own preferences.
-    static let suiteName = (Bundle.main.bundleIdentifier ?? "com.dragonapp.dragon-sample-app") + ".settings"
+    /// The standard Dragon settings suite (distinct from the app's bundle-id domain) so a backup
+    /// captures only app settings, not the backup pane's own preferences. Uninstall clears it
+    /// without being told, because DragonKit names the same suite.
+    static let suiteName = DragonSettingsSuite.standardName(
+        for: Bundle.main.bundleIdentifier ?? "com.dragonapp.dragon-sample-app"
+    )
 
     private let store: DragonSettingsStore<SampleSettings>
     private var settings: SampleSettings {
