@@ -9,8 +9,8 @@
 "app.general.playSound" = "Play sound on action";
 "app.general.playSoundHint" = "A sample app-specific setting — included so Backup & Restore has real data to save.";
 "app.general.languageSection" = "Language";
-"app.whatsNew.summary" = "Dragon Sample App now uses DragonKit 4.4.0. It looks and works the same as before.";
-"app.whatsNew.changed1" = "Updated to DragonKit 4.4.0, the shared framework behind the menu, Settings, About, What's New and software updates. Uninstall removes the same settings as before, and About now shows DragonKit 4.4.0.";
+"app.whatsNew.summary" = "Safer settings backups.";
+"app.whatsNew.changed1" = "Backups in a shared folder no longer affect another app's history. Saving twice in one second keeps both copies, and deletion errors are shown.";
 "app.uninstall.item.app" = "The app and its login item";
 "app.uninstall.item.settings" = "All settings";
 "app.uninstall.item.state" = "Saved application state";

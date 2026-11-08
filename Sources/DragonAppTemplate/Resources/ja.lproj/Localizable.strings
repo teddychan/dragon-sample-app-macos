@@ -9,8 +9,8 @@
 "app.general.playSound" = "操作時にサウンドを再生";
 "app.general.playSoundHint" = "アプリ独自のサンプル設定です。バックアップと復元に保存する実データを用意するために含まれています。";
 "app.general.languageSection" = "言語";
-"app.whatsNew.summary" = "Dragon Sample App は DragonKit 4.4.0 を使うようになりました。見た目と動作はこれまでと同じです。";
-"app.whatsNew.changed1" = "DragonKit 4.4.0 に更新しました。これはメニュー・設定・このアプリについて・新機能・ソフトウェアアップデートの背後にある共有フレームワークです。アンインストールで削除される設定はこれまでと同じで、「このアプリについて」には DragonKit 4.4.0 と表示されます。";
+"app.whatsNew.summary" = "設定のバックアップをより安全に。";
+"app.whatsNew.changed1" = "共有フォルダ内のバックアップが、ほかのアプリの履歴に影響しなくなりました。同じ秒に2回保存しても両方が残り、削除に失敗した場合はエラーが表示されます。";
 "app.uninstall.item.app" = "アプリとそのログイン項目";
 "app.uninstall.item.settings" = "すべての設定";
 "app.uninstall.item.state" = "保存されたアプリケーションの状態";

@@ -22,13 +22,10 @@ enum WhatsNewConfig {
     @MainActor
     static var content: WhatsNewContent {
         WhatsNewContent(
-            date: "2026-11-07",
+            date: "2026-11-08",
             summary: L("app.whatsNew.summary"),
             sections: [
-                // 1.6.0 only moves to DragonKit 4.4.0. Its Uninstall change clears the same
-                // settings suite this app already listed, and its optional Backup "A backup saves"
-                // list is not adopted here.
-                ChangeSection(kind: .changed, entries: [
+                ChangeSection(kind: .fixed, entries: [
                     L("app.whatsNew.changed1"),
                 ]),
             ]

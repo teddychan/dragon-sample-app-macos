@@ -9,8 +9,8 @@
 "app.general.playSound" = "操作時播放聲音";
 "app.general.playSoundHint" = "一個 App 專屬的範例設定——包含它是為了讓備份與還原有真實資料可儲存。";
 "app.general.languageSection" = "語言";
-"app.whatsNew.summary" = "Dragon Sample App 現已改用 DragonKit 4.4.0，外觀和功能與先前相同。";
-"app.whatsNew.changed1" = "已更新到 DragonKit 4.4.0，這是選單、「設定」「關於」「新功能」與軟體更新背後的共用框架。解除安裝時刪除的設定與先前相同，「關於」現在顯示 DragonKit 4.4.0。";
+"app.whatsNew.summary" = "設定備份更安全。";
+"app.whatsNew.changed1" = "共用資料夾中的備份不再影響其他 App 的備份記錄。同一秒內儲存兩次會保留兩個副本，刪除失敗時也會顯示錯誤。";
 "app.uninstall.item.app" = "App 及其登入項目";
 "app.uninstall.item.settings" = "所有設定";
 "app.uninstall.item.state" = "已儲存的 App 狀態";
