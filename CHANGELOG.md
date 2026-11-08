@@ -6,6 +6,11 @@ message and the notes of its GitHub Release.
 Versions before 1.4.2 were released from the DragonKit repository. Tags v1.4.1 and v1.4.7 exist
 but never became a release.
 
+## [1.6.1] - 2026-11-08
+
+Settings backups now keep each app's history separate in a shared folder. Two backups saved
+in the same second remain available, and deletion errors are shown. Updated to DragonKit 4.5.1.
+
 ## [1.6.0] - 2026-11-07
 
 Dragon Sample App looks and works the same as 1.5.0. This version moves it to DragonKit 4.4.0.

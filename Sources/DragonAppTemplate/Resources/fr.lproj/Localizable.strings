@@ -9,8 +9,8 @@
 "app.general.playSound" = "Émettre un son lors d’une action";
 "app.general.playSoundHint" = "Un réglage d’exemple propre à l’app, inclus pour que Sauvegarde ait de vraies données à enregistrer.";
 "app.general.languageSection" = "Langue";
-"app.whatsNew.summary" = "Dragon Sample App utilise désormais DragonKit 4.4.0. Son apparence et son fonctionnement ne changent pas.";
-"app.whatsNew.changed1" = "Mise à jour vers DragonKit 4.4.0, le framework partagé derrière le menu, Réglages, À propos, Nouveautés et les mises à jour logicielles. Désinstaller supprime les mêmes réglages qu’avant, et À propos affiche désormais DragonKit 4.4.0.";
+"app.whatsNew.summary" = "Des sauvegardes de réglages plus sûres.";
+"app.whatsNew.changed1" = "Les sauvegardes d'un dossier partagé n'affectent plus l'historique des autres apps. Deux sauvegardes dans la même seconde sont conservées et les erreurs de suppression sont affichées.";
 "app.uninstall.item.app" = "L’app et son élément d’ouverture";
 "app.uninstall.item.settings" = "Tous les réglages";
 "app.uninstall.item.state" = "État enregistré de l’app";
